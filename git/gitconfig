@@ -1,0 +1,29 @@
+# This is Git's per-user configuration file.
+[user]
+	name = baileyb0t
+	email = bailey_hrvd_org@fastmail.com`
+	password = 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
+    PAT = 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 
+
+# user details
+	name = Bailey Passmore
+	email = bailey@hrdag.org
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[color "grep"]
+    context = dim white
+    function = dim white
+    filename = dim white
+    linenumber = dim yellow
+    match = red
+    selected = white
+    separator = dim blue
+
+# <------ done ------>
+[init]
+	defaultBranch = main
