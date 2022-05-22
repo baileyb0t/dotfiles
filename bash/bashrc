@@ -2,6 +2,7 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 #" BASH ALIASES ---------------------------------------------------------------- {{{
 alias ll='ls -alFGgh --color="always"'
+alias python="python3"
 #" }}}
 
 #" GIT ALIASES ---------------------------------------------------------------- {{{

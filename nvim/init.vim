@@ -1,5 +1,4 @@
 " Author: Bailey Passmore
-" Last Modified: $mtime .vimrc
 
 " Some pieces from:
 " 	- https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
@@ -126,7 +125,7 @@ let rout_color_string   = 'guifg=#fce94f' "yellow
 let rout_color_error    = 'guifg=#eeeeec guibg=#e73c50'
 let rout_color_warn     = 'guifg=#e73c50'
 let rout_color_index    = 'guifg=#8f908a'
-" }}}
+"}}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
@@ -137,18 +136,18 @@ call plug#begin('~/dotfiles/vim/plugged/')
    Plug 'dense-analysis/ale'
    
    Plug 'davidhalter/jedi-vim', { 'for':  'python' }
-   
-   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+"   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     
     " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
     " - https://github.com/Valloric/YouCompleteMe
     " - https://github.com/nvim-lua/completion-nvim
-    let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"    let g:UltiSnipsEditSplit="vertical"
+"    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
     " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
+"    let g:UltiSnipsEditSplit="vertical"
 
 call plug#end()
 
