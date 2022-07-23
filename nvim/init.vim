@@ -7,6 +7,12 @@
 " Currently part of:
 "	- https://github.com/baileyb0t/dotfiles
 
+" from nvim-to-vim instructions
+" may void some or all of the below lines?
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vimrc
+
 " LAYOUT ---------------------------------------------------------------- {{{ 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible

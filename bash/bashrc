@@ -12,3 +12,25 @@ alias gA="git add -A && git status"
 #" }}}
 
 alias conda-exit="conda deactivate; source .bashrc"
+
+# using templates
+alias cp-py="cp ~/git/training-docs/templates/sample.py ."
+alias cp-m="cp ~/git/training-docs/templates/Makefile ."
+
+# using tmux
+alias tm-new="tmux new -s"
+alias tm-a="tmux a -t"
+alias tm-ls="tmux ls"
+alias tm-k="tmux kill-session -t"
+#alias tm-ka="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
+alias tm-vs="%"
+alias tm-hs='"'
+
+# project-specific
+# training-docs
+alias tr="cd ~/git/training-docs"
+
+# PR-Km0
+alias km-or="cd ~/git/PR-Km0/officer-roster"
+alias km-br="cd ~/git/PR-Km0; git checkout bailey-working"
+alias km-update="cd ~/git/PR-Km0; git pull; snap pull; git checkout bailey-working"

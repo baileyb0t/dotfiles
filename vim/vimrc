@@ -40,10 +40,10 @@ set cursorcolumn
 set shiftwidth=4
 
 " Set tab width to 4 columns.
-set tabstop=4
+"set tabstop=4
 
 " Use space characters instead of tabs.
-set expandtab
+"set expandtab
 
 " Do not save backup files.
 set nobackup
@@ -80,7 +80,7 @@ set hlsearch
 set history=1000
 
 " Enable auto completion menu after pressing TAB.
-set wildmenu
+"set wildmenu
 
 " Make wildmenu behave like similar to Bash completion.
 set wildmode=list:longest
@@ -98,9 +98,9 @@ let g:airline_section_c = "%f"
 
 "show buffers
 let g:airline_theme = 'gruvbox'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#tabline#buffer_nr_show=1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'default'
+"let g:airline#extensions#tabline#buffer_nr_show=1
 
 let g:molokai_term_italic = 1
 let g:molokai_gui_italic = 1
@@ -132,7 +132,7 @@ let rout_color_index    = 'guifg=#8f908a'
 
 call plug#begin('~/dotfiles/vim/plugged/')
 
-   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+   Plug 'preservim/nerdtree'
 
    Plug 'dense-analysis/ale'
    
