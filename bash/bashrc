@@ -1,23 +1,35 @@
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-#" BASH ALIASES ---------------------------------------------------------------- {{{
+# ---- BASH ALIASES {{{
+# filesystem 
 alias ll='ls -alFGgh --color="always"'
-alias python="python3"
-#" }}}
-
-#" GIT ALIASES ---------------------------------------------------------------- {{{
-alias gs="git status"
-alias gc="git commit -m"
-alias gA="git add -A && git status"
-#" }}}
-
-alias conda-exit="conda deactivate; source .bashrc"
+alias ..="cd .."
+alias ...="cd ../.."
 
 # using templates
 alias cp-py="cp ~/git/training-docs/templates/sample.py ."
 alias cp-m="cp ~/git/training-docs/templates/Makefile ."
+alias cp-rmd="cp ~/git/training-docs/templates/sample.Rmd"
 
-# using tmux
+# using HRDAG project structure
+alias mktask="mkdir input output src; touch Makefile"
+#}}}
+
+# ----GIT ALIASES {{{
+alias gs="git status"
+alias gc="git commit -m"
+alias gA="git add -A && git status"
+# }}}
+
+# ---- LANGUAGE ALIASES {{{
+alias python="python3"
+#}}}
+
+# ---- VIM/NVIM ALIASES {{{
+alias nv="nvim"
+#}}}
+
+# ---- TMUX ALIASES {{{ 
 alias tm-new="tmux new -s"
 alias tm-a="tmux a -t"
 alias tm-ls="tmux ls"
@@ -25,12 +37,17 @@ alias tm-k="tmux kill-session -t"
 #alias tm-ka="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
 alias tm-vs="%"
 alias tm-hs='"'
+#}}}
 
-# project-specific
+# ---- PROJECT-SPECIFIC ALIASES {{{ 
 # training-docs
 alias tr="cd ~/git/training-docs"
+alias tr-update="cd ~/git/training-docs; git pull; cd -"
 
 # PR-Km0
 alias km-or="cd ~/git/PR-Km0/officer-roster"
 alias km-br="cd ~/git/PR-Km0; git checkout bailey-working"
-alias km-update="cd ~/git/PR-Km0; git pull; snap pull; git checkout bailey-working"
+alias km-update="cd ~/git/PR-Km0; git pull; snap pull; cd -"
+#}}}
+
+# done.
