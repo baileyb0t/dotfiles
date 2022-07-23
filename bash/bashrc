@@ -19,6 +19,12 @@ alias mktask="mkdir input output src; touch Makefile"
 alias gs="git status"
 alias gc="git commit -m"
 alias gA="git add -A && git status"
+
+# update gitconfig 
+# from local
+alias get-local-gitconf="scp home@popcorn:/git/dotfiles/git/gitconfig bailey-r@eleanor:/git/dotfiles/git/"
+# from remote
+alias get-remote-gitconf="scp bailey-r@eleanor:/git/dotfiles/git/gitconfig home@popcorn:/git/dotfiles/git/"
 # }}}
 
 # ---- LANGUAGE ALIASES {{{
