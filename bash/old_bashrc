@@ -1,0 +1,16 @@
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export HRDAG_GIT_HOME=~/git
+
+
+#" BASH ALIASES ---------------------------------------------------------------- {{{
+alias ll='ls -alFGgh --color="always"'
+alias python="python3"
+#" }}}
+
+#" GIT ALIASES ---------------------------------------------------------------- {{{
+alias gs="git status"
+alias gc="git commit -m"
+alias gA="git add -A && git status"
+#" }}}
+
+alias conda-exit="conda deactivate; source .bashrc"
