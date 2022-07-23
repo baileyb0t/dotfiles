@@ -1,11 +1,26 @@
-# This is Git's per-user configuration file.
 [user]
 	name = baileyb0t
-	email = bailey_hrvd_org@fastmail.com`
-
-# user details
-	name = Bailey Passmore
 	email = bailey@hrdag.org
+	PAT = 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
+
+[status]
+	submoduleSummary = true
+	showUntrackedFiles = all
+
+[color]
+	ui = auto
+
+[color "grep"]
+   	context = dim white
+   	function = dim white
+   	filename = dim white
+   	linenumber = dim yellow
+   	match = red
+   	selected = white
+   	separator = dim blue
+
+[grep]
+	lineNumber = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -13,15 +28,16 @@
 	process = git-lfs filter-process
 	required = true
 
-[color "grep"]
-    context = dim white
-    function = dim white
-    filename = dim white
-    linenumber = dim yellow
-    match = red
-    selected = white
-    separator = dim blue
-
-# <------ done ------>
 [init]
 	defaultBranch = main
+
+[branch "bailey-working"]
+	rebase = preserve
+
+[color "branch"]
+	upstream = cyan 
+
+[push]
+	default = simple
+
+# <------ done ------>
