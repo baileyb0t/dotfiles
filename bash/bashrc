@@ -22,9 +22,9 @@ alias gA="git add -A && git status"
 
 # update gitconfig 
 # from local
-alias get-local-gitconf="scp home@popcorn:/git/dotfiles/git/gitconfig bailey-r@eleanor:/git/dotfiles/git/"
+alias send-local-gitconf="scp ~/git/dotfiles/git/gitconfig bailey-r@eleanor:/git/dotfiles/git/"
 # from remote
-alias get-remote-gitconf="scp bailey-r@eleanor:/git/dotfiles/git/gitconfig home@popcorn:/git/dotfiles/git/"
+alias get-remote-gitconf="scp bailey-r@eleanor:/git/dotfiles/git/gitconfig ~/git/dotfiles/git/"
 # }}}
 
 # ---- LANGUAGE ALIASES {{{
