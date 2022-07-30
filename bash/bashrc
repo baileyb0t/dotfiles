@@ -2,6 +2,9 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # ---- BASH ALIASES {{{
+# easy out
+alias off="cd; tmux kill-session -t; exit"
+
 # filesystem 
 alias ll='ls -alFGgh --color="always"'
 alias ..="cd .."
@@ -21,6 +24,7 @@ alias gs="git status"
 alias gc="git commit -m"
 alias gA="git add -A && git status"
 
+# THESE DONT WORK RN
 # update gitconfig 
 # from local
 alias send-local-gitconf="scp ~/git/dotfiles/git/gitconfig bailey-r@eleanor:/git/dotfiles/git/"
