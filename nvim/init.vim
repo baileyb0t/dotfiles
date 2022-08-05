@@ -137,23 +137,43 @@ let rout_color_index    = 'guifg=#8f908a'
 
 call plug#begin('~/dotfiles/vim/plugged/')
 
-   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-   Plug 'dense-analysis/ale'
-   
-   Plug 'davidhalter/jedi-vim', { 'for':  'python' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'dense-analysis/ale'
+Plug 'davidhalter/jedi-vim', { 'for':  'python' }
 
 "   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     
-    " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-    " - https://github.com/Valloric/YouCompleteMe
-    " - https://github.com/nvim-lua/completion-nvim
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
 "    let g:UltiSnipsEditSplit="vertical"
 "    let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-    " If you want :UltiSnipsEdit to split your window.
+" If you want :UltiSnipsEdit to split your window.
 "    let g:UltiSnipsEditSplit="vertical"
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+	
+" For vsnip users.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
+" For luasnip users.
+" Plug 'L3MON4D3/LuaSnip'
+" Plug 'saadparwaiz1/cmp_luasnip'
+
+" For ultisnips users.
+" Plug 'SirVer/ultisnips'
+" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+" For snippy users.
+" Plug 'dcampos/nvim-snippy'
+" Plug 'dcampos/cmp-snippy'
 
 call plug#end()
 
