@@ -1,5 +1,14 @@
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# zsh auto-completion (for home)
+#source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# bash auto-completion (for eleanor)
+source /usr/share/bash-completion/bash_completion
+
+# ---- locale {{{
+export LC_ALL="en_US.UTF-8"
+#}}}
 
 # ---- BASH ALIASES {{{
 # easy out
