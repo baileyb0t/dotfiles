@@ -1,11 +1,13 @@
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# ---- BASH ALIASES {{{
+
+# ---- BASH {{{
 # easy out
 alias off="cd; tmux kill-session -t; exit"
 
 # filesystem 
+export LC_ALL=en_US.UTF-8
 alias ll='ls -alFGgh --color="always"'
 alias ..="cd .."
 alias ...="cd ../.."
