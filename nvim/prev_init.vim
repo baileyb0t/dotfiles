@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 " ---- LAYOUT {{{
 
 " enable file detection
@@ -30,6 +29,7 @@ set cursorcolumn
 set shiftwidth=4
 <<<<<<< HEAD
 =======
+>>>>>>> main
 " Author: Bailey Passmore
 
 " Some pieces from:
@@ -75,6 +75,8 @@ set cursorcolumn
 
 " Set shift width to 4 spaces.
 set shiftwidth=4
+<<<<<<< HEAD
+=======
 >>>>>>> a455cf2 (lots of changes, and things work now)
 
 " Set tab width to 4 columns.
@@ -193,6 +195,7 @@ call plug#end()
 
 " }}}
 =======
+>>>>>>> main
 
 " Set tab width to 4 columns.
 set tabstop=4
@@ -284,11 +287,15 @@ let rout_color_index    = 'guifg=#8f908a'
 "}}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
+<<<<<<< HEAD
+
+call plug#begin('~/dotfiles/vim/plugged/')
+
+=======
 ========
 " enable nvim spell check
 set spelllang=en
 "  }}}
->>>>>>>> a455cf2 (lots of changes, and things work now):nvim/init.vim
 
 " ---- PLUGINS {{{
 call plug#begin('~/dotfiles/vim/plugged/')
@@ -358,6 +365,7 @@ colorscheme gruvbox-material
 
 " setup for indent blank lines {{{
 =======
+>>>>>>> main
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -389,7 +397,10 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 call plug#end()
 
 " setup for indent blank lines
+<<<<<<< HEAD
+=======
 >>>>>>> a455cf2 (lots of changes, and things work now)
+>>>>>>> main
 lua << EOF
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
@@ -400,6 +411,8 @@ require("indent_blankline").setup {
     space_char_blankline = " ",
 }
 EOF
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 " }}}
 
@@ -482,6 +495,7 @@ let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$','\.iso$', '\.pdf$', '
 >>>>>>> parent of a455cf2 (lots of changes, and things work now)
 
 =======
+>>>>>>> main
 
 " setup for autopairs
 lua << EOF
@@ -568,7 +582,6 @@ EOF
 
 " }}}
 
->>>>>>> a455cf2 (lots of changes, and things work now)
 " MAPPINGS --------------------------------------------------------------- {{{
 
 " Set the backslash as the leader key.
@@ -630,6 +643,8 @@ nnoremap <F3> :NERDTreeToggle<cr>
 " Have nerdtree ignore certain files and directories.
 let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$','\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 ========
 " setup for nvim-treesitter {{{
 lua << EOF
@@ -658,6 +673,7 @@ augroup filetype_vim
 augroup END
 " }}}
 =======
+>>>>>>> main
 
 " }}}
 
@@ -669,7 +685,10 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
+<<<<<<< HEAD
+=======
 >>>>>>> a455cf2 (lots of changes, and things work now)
+>>>>>>> main
 
 " If the current file type is HTML, set indentation to 2 spaces.
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
@@ -698,10 +717,14 @@ if has('gui_running')
 
     " Set the color scheme.
 <<<<<<< HEAD
+    colorscheme molokai
+=======
+<<<<<<< HEAD
     colorscheme gruvbox-material
 =======
     colorscheme molokai
 >>>>>>> a455cf2 (lots of changes, and things work now)
+>>>>>>> main
 
     " Set a custom font you have installed on your computer.
     " Syntax: set guifont=<font_name>\ <font_weight>\ <size>
@@ -736,11 +759,14 @@ endif
 
 " }}}
 
+" STATUS LINE ------------------------------------------------------------ {{{
+=======
 <<<<<<< HEAD
 " ---- STATUS LINE ------------------------------------------------------------ {{{
 =======
 " STATUS LINE ------------------------------------------------------------ {{{
 >>>>>>> a455cf2 (lots of changes, and things work now)
+>>>>>>> main
 
 " Clear status line when vimrc is reloaded.
 set statusline=
@@ -759,6 +785,8 @@ set laststatus=2
 
 " }}}
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 " ---- MAPPINGS {{{
 " spell check {{{
@@ -771,3 +799,4 @@ inoremap <silent> <F11> <C-O>:set spell!<cr>
 " done.
 =======
 >>>>>>> a455cf2 (lots of changes, and things work now)
+>>>>>>> main
