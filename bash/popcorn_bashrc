@@ -3,24 +3,23 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # zsh auto-completion (for home)
 source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-<<<<<<< HEAD:bash/popcorn_bashrc
-# bash auto-completion (for eleanor)
-source /usr/share/bash-completion/bash_completion
-
 # ---- locale {{{
 export LC_ALL="en_US.UTF-8"
+<<<<<<< HEAD
+<<<<<<< HEAD:bash/local_bashrc
+# }}}
+=======
 #}}}
+>>>>>>> main:bash/popcorn_bashrc
+=======
+# }}}
+>>>>>>> main
 
 # ---- BASH ALIASES {{{
-=======
-
-# ---- BASH {{{
->>>>>>> b06ffaa (adding local; need to inspect differences after merge):bash/local_bashrc
 # easy out
 alias off="cd; tmux kill-session -t; exit"
 
 # filesystem 
-export LC_ALL=en_US.UTF-8
 alias ll='ls -alFGgh --color="always"'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -64,6 +63,10 @@ alias tm-k="tmux kill-session -t"
 #alias tm-ka="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
 alias tm-vs="%"
 alias tm-hs='"'
+#}}}
+
+# ----- FLUTTER {{{
+export PATH="$PATH:Users/home/development/flutter/bin"
 #}}}
 
 # ---- PROJECT-SPECIFIC ALIASES {{{ 
