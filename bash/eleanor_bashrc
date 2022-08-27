@@ -55,7 +55,7 @@ alias mktask="mkdir input output src; touch Makefile"
 
 # ----GIT ALIASES {{{
 alias gs="git status"
-alias gc="git commit -m"
+alias gc="git commit"
 alias gA="git add -A && git status"
 alias master-to-main="git branch -m master main; git fetch origin; git branch -u origin/main main; git remote set-head origin -a"
 
