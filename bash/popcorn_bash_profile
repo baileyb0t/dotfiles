@@ -1,0 +1,13 @@
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+#" BASH ALIASES ---------------------------------------------------------------- {{{
+alias ll='ls -alFGgh --color="always"'
+#" }}}
+
+#" GIT ALIASES ---------------------------------------------------------------- {{{
+alias gs="git status"
+alias gc="git commit -m"
+alias gA="git add -A && git status"
+#" }}}
+
+
