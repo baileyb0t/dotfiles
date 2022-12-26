@@ -55,19 +55,6 @@ Plug 'jpalardy/vim-slime'   " run Julia REPL
 Plug 'lervag/vimtex'   " make neovim support LaTeX
 Plug 'kkharji/lspsaga.nvim'   " get LSP popups and docs
 
-" BuildComposer {{{
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release --locked
-    else
-      !cargo build --release --locked --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-" }}}
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
-
 " grand functionality
 Plug 'jalvesaq/vimcmdline'
 Plug 'dense-analysis/ale'
