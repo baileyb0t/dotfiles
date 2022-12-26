@@ -26,7 +26,10 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
  
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
- 
+
+## End conda sessions when aer-services doesn't
+alias end_conda="ps aux | grep bailey-r | grep conda | grep -v grep | awk '{print $2}' | xargs kill -9"
+
 ## older system use /proc/cpuinfo ##
 ##alias cpuinfo='less /proc/cpuinfo' ##
  
