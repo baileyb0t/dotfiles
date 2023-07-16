@@ -1,0 +1,58 @@
+snippet header
+	# vim: set ts=8 sts=0 sw=8 si fenc=utf-8 noet:
+	# vim: set fdm=marker fmr={{{,}}} fdl=0 foldcolumn=4:
+	# Authors:     BP
+	# Maintainers: BP
+	# Copyright:   2023, HRDAG, GPL v2 or later
+	# =========================================
+	$0
+
+snippet setup_base "basic makefile"
+	input := ${1:} 
+	output := output/${2:}
+	src := src/${3:}
+	
+	.PHONY: all clean
+	
+	all: 
+	
+	clean: 
+		-rm -r output/*
+	$0
+
+snippet here
+	HERE := %(shell git rev-parse --show-toplevel)
+	$0
+
+#snippet pytask
+#	${1:target}: \
+#		src/${2:script_fn}.py \
+#		${3:input}
+#	-mkdir output
+#	python %< \
+#		--input=${3:input} \
+#		--output=%@
+#	$0
+#
+#snippet rtask
+#	${1:target}:\
+#			src/${2:script_fn}.R \
+#			${3:input}
+#		-mkdir output
+#		Rscript --vanilla %< \
+#			--input=${3:input} \
+#			--output=%@
+#	$0
+#
+#snippet subtask
+#	${1:target}: ${2:input}
+#		cd %@ && make
+#	$0
+#
+#snippet symlink
+#	${1:target}: ${2:input}
+#		-mkdir output
+#		cd output && ln -s ../%< .
+#	$0
+
+# done.

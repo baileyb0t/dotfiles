@@ -34,7 +34,7 @@ call plug#begin('~/dotfiles/vim/plugged/')
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " filesystem
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }"
@@ -64,6 +64,8 @@ Plug 'RishabhRD/nvim-lsputils'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'lewis6991/spellsitter.nvim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
 
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
@@ -102,6 +104,7 @@ EOF
 
 " setup for coq_nvim {{{
 let g:coq_settings = {"auto_start": v:true}
+let g:coq_settings = { "keymap.recommended": v:true }
 " }}}
 
 " setup for nvim-lsputils {{{
@@ -168,13 +171,13 @@ EOF
 " }}}
 
 " setup for nvim-treesitter {{{
-lua << EOF
-require('nvim-treesitter').setup {
-	highlight = {
-		enable = true,
-  },
-}
-EOF
+" lua << EOF
+" require('nvim-treesitter').setup {
+"	highlight = {
+"		enable = true,
+"  },
+"}
+"EOF
 " }}}
 
 " setup for spellsitter {{{
