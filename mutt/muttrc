@@ -1,0 +1,28 @@
+# About - {{{
+set realname = '<Bailey Passmore>'
+set from = '<bailey>@hrdag.org'
+set use_from = yes
+set envelope_from = yes
+# }}}
+
+# Credentials - {{{
+set smtp_url = 'smtps://<Gmail Username>@gmail.com@smtp.gmail.com:465/'
+set smtp_pass = '<Password>'
+set imap_user = '<Gmail Username>@gmail.com'
+set imap_pass = '<Password>'
+# }}}
+
+# Mailboxes - {{{
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed = '+[Gmail]/Drafts'
+set record = '+[Gmail]/Sent Mail'
+set trash = '+[Gmail]/Trash'
+set ssl_force_tls = yes
+# }}}
+
+# Destination folders - {{{
+set header_cache     = ~/.mutt/cache/headers # store headers
+set message_cachedir = ~/.mutt/cache/bodies  # store bodies
+set certificate_file = ~/.mutt/certificates  # store certs (touch file)
+# }}}
