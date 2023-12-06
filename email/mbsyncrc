@@ -1,0 +1,59 @@
+# borrowed from: https://github.com/tarakc02/dotfiles/blob/main/email/mbsyncrc
+
+#################################
+######## Account hrdag ########
+#################################
+
+IMAPAccount hrdag
+Host imap.fastmail.com
+User bailey_hrvd_org@fastmail.fm
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.mutt/passwords/fastmail.gpg"
+SSLType IMAPS
+AuthMechs LOGIN
+
+# Remote storage
+IMAPStore hrdag-remote
+Account hrdag
+
+# Local storage
+MaildirStore hrdag-local
+Path ~/Mail/hrdag/
+Inbox ~/Mail/hrdag/inbox
+
+Channel hrdag-inbox
+Far :hrdag-remote:"INBOX"
+Near :hrdag-local:inbox
+Create Near
+
+Channel hrdag-archive
+Far :hrdag-remote:"Archive"
+Near :hrdag-local:archive
+Create Near
+
+Channel hrdag-drafts
+Far :hrdag-remote:"Drafts"
+Near :hrdag-local:drafts
+Create Near
+
+Channel hrdag-sent
+Far :hrdag-remote:"Sent"
+Near :hrdag-local:sent
+Create Near
+
+Channel hrdag-trash
+Far :hrdag-remote:"Trash"
+Near :hrdag-local:trash
+Create Near
+
+Channel hrdag-junk
+Far :hrdag-remote:"Spam"
+Near :hrdag-local:junk
+Create Near
+
+Group hrdag
+Channel hrdag-inbox
+Channel hrdag-archive
+Channel hrdag-drafts
+Channel hrdag-sent
+Channel hrdag-trash
+Channel hrdag-junk

@@ -1,0 +1,30 @@
+# borrowed from: https://github.com/tarakc02/dotfiles/blob/main/email/mailcap
+
+# MS documents
+application/msword; ~/.mutt/scripts/view_attachment.sh %s "-"
+application/vnd.ms-excel; ~/.mutt/scripts/view_attachment.sh %s "-"
+application/vnd.openxmlformats-officedocument.presentationml.presentation; ~/.mutt/scripts/view_attachment.sh %s "-"
+application/vnd.oasis.opendocument.text; ~/.mutt/scripts/view_attachment.sh %s "-"
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/scripts/view_attachment.sh %s "-"
+
+
+# Images
+image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/png; ~/.mutt/scripts/view_attachment.sh %s png
+image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
+video/mp4; ~/.mutt/scripts/view_attachment.sh %s mp4
+application/pdf; ~/.mutt/scripts/view_attachment.sh %s pdf
+
+# HTML
+text/html; CHARSET=%{charset} ~/.mutt/scripts/view_attachment.sh %s html
+text/plain; ~/.mutt/scripts/view_mail.sh %s; needsterminal
+
+# email
+application/ics; ~/.mutt/scripts/view_attachment.sh %s ics
+application/ics; ~/.mutt/scripts/view_attachment.sh %s ics
+text/calendar; ~/.mutt/scripts/view_attachment.sh %s ics
+
+# Unidentified files
+application/octet-stream; ~/.mutt/scripts/view_attachment.sh %s "-"

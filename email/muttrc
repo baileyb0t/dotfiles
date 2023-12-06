@@ -1,28 +1,160 @@
-# About - {{{
-set realname = '<Bailey Passmore>'
-set from = '<bailey>@hrdag.org'
-set use_from = yes
-set envelope_from = yes
-# }}}
+# borrowed from: https://github.com/tarakc02/dotfiles/blob/main/email/muttrc
 
-# Credentials - {{{
-set smtp_url = 'smtps://<Gmail Username>@gmail.com@smtp.gmail.com:465/'
-set smtp_pass = '<Password>'
-set imap_user = '<Gmail Username>@gmail.com'
-set imap_pass = '<Password>'
-# }}}
+set realname = "Bailey Passmore"
+set from = "bailey@hrdag.org"
+set sendmail = "/opt/homebrew/bin/msmtp -a hrdag"
 
-# Mailboxes - {{{
-set folder = 'imaps://imap.gmail.com:993'
-set spoolfile = '+INBOX'
-set postponed = '+[Gmail]/Drafts'
-set record = '+[Gmail]/Sent Mail'
-set trash = '+[Gmail]/Trash'
-set ssl_force_tls = yes
-# }}}
+set folder = ~/Mail
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+# https://github.com/neomutt/neomutt/issues/2891
+set nm_default_url = "notmuch://`notmuch config get database.path`"
+set nm_open_timeout = 0
 
-# Destination folders - {{{
-set header_cache     = ~/.mutt/cache/headers # store headers
-set message_cachedir = ~/.mutt/cache/bodies  # store bodies
-set certificate_file = ~/.mutt/certificates  # store certs (touch file)
-# }}}
+set spoolfile = "notmuch://?query=folder:hrdag/inbox"
+set record = ""
+set postponed = "+hrdag/drafts"
+set trash = "+hrdag/trash"
+set mbox = "+hrdag/archive"
+
+set pgp_sign_as = 1D1CD4E6
+set crypt_use_gpgme = yes
+set crypt_autosign = no
+set crypt_verify_sig = yes
+set crypt_replysign = yes
+set crypt_replyencrypt = yes
+set crypt_replysignencrypted = yes
+
+# a bunch of stuff from https://webgefrickel.de/blog/a-modern-mutt-setup
+# behavior
+set wait_key = no
+set thorough_search
+set mail_check_stats = no
+set mail_check = 5
+unset confirmappend
+unset move
+unset mark_old
+unset beep_new
+
+# compose View Options
+set use_envelope_from                    # which from?
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+#set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:\n" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+set text_flowed
+unset sig_dashes                     # no dashes before sig
+set mime_forward = ask-yes                   # forward attachments as part of body?
+
+
+# status bar, date format, finding stuff etc.
+set status_chars = " *%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set date_format = "%d-%b %H:%M"
+set index_format = " %D %?X?-A-&   ? %-20.20F    %s %?M?(%M)? "
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
+
+# Pager View Options
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+set wrap=80
+set smart_wrap
+
+unset show_multipart_alternative
+
+# email headers and attachments
+ignore *
+unignore from: to: cc: bcc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: bcc: date: subject:
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+auto_view text/plain
+
+# sidebar patch config
+#set sidebar_visible
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_width = 25
+set sidebar_divider_char = ' ￨ '
+set sidebar_indent_string = '''
+set sidebar_format = "%D %* %?S?[?%?N?%N / ?%?S?%S]?"
+
+folder-hook . 'push <collapse-all>'
+
+set nm_query_type = threads
+
+virtual-mailboxes "INBOX"                  "notmuch://?query=folder:hrdag/inbox"
+virtual-mailboxes "  recent"               "notmuch://?query=folder:hrdag/inbox date:2_weeks_ago..today"
+virtual-mailboxes "  this-week"            "notmuch://?query=date:this_week folder:hrdag/inbox"
+virtual-mailboxes "  this-month"           "notmuch://?query=date:this_month folder:hrdag/inbox"
+virtual-mailboxes "  today"                "notmuch://?query=date:today folder:hrdag/inbox"
+virtual-mailboxes "......................" "notmuch://?query=folder:DIVUNREADSTART"
+virtual-mailboxes "UNREAD"                 "notmuch://?query=folder:hrdag/inbox tag:unread"
+virtual-mailboxes "  recent"               "notmuch://?query=folder:hrdag/inbox date:2_weeks_ago..today tag:unread"
+virtual-mailboxes "  this-week"            "notmuch://?query=folder:hrdag/inbox tag:unread date:this_week"
+virtual-mailboxes "  this-month"            "notmuch://?query=folder:hrdag/inbox tag:unread date:this_month"
+virtual-mailboxes "......................" "notmuch://?query=folder:DIVWKSTART"
+virtual-mailboxes "weeklies"               "notmuch://?query=subject:'/^[A-Z]{2,5}/' NEAR/2 subject:'week of'"
+virtual-mailboxes "  recent"               "notmuch://?query=subject:'/^[A-Z]{2,5}/' NEAR/2 subject:'week of' date:2_weeks_ago..today"
+virtual-mailboxes "  this-week"            "notmuch://?query=subject:'/^[A-Z]{2,5}/' NEAR/2 subject:'week of' date:this_week"
+virtual-mailboxes "  this-month"           "notmuch://?query=subject:'/^[A-Z]{2,5}/' NEAR/2 subject:'week of' date:this_month"
+virtual-mailboxes "......................" "notmuch://?query=folder:DIVETCSTART"
+virtual-mailboxes "SENT"                   "notmuch://?query=folder:hrdag/sent"
+virtual-mailboxes "DRAFTS"                 "notmuch://?query=folder:hrdag/drafts"
+
+
+macro index,pager \Cr "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>"
+
+# navigation
+bind index,pager k previous-entry
+bind index,pager j next-entry
+bind index,pager g noop
+bind index,pager \Cu half-up
+bind index,pager \Cd half-down
+bind index,pager ,, sidebar-toggle-visible
+#bind index,pager ,v sidebar-toggle-virtual
+bind pager gg top
+bind index gg first-entry
+bind pager G bottom
+bind index G last-entry
+bind index,pager ,/ vfolder-from-query
+bind index,pager p noop
+
+bind index,pager R group-reply
+
+bind attach <Enter> view-mailcap
+bind attach <Return> view-mailcap
+
+# Sidebar Navigation
+bind index,pager \Cj sidebar-next
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cl sidebar-open
+
+macro compose ,h "<first-entry><enter-command>set wait_key=no<enter>\
+<pipe-entry>pandoc -f markdown -t html --quiet -o /tmp/neomutt-alternative.html<enter>\
+<attach-file>/tmp/neomutt-alternative.html<enter>\
+<toggle-unlink><toggle-disposition>\
+<tag-entry><first-entry><tag-entry><group-alternatives>
+
+set editor = "nvim '+set filetype=mail' '+Goyo'"
+
+source ~/.mutt/mutt-colors.muttrc

@@ -1,0 +1,10 @@
+# borrowed from: https://github.com/tarakc02/dotfiles/blob/main/email/editor.muttrc
+
+source ~/.muttrc
+
+unhook send-hook
+unset signature
+unmy_hdr *
+
+set autoedit=yes
+set editor = "nvim '+set filetype=mail' '+Goyo' %s"
