@@ -1,0 +1,124 @@
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+# ---- coloring {{{
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
+    else
+        color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+# }}}
+
+# ---- locale {{{
+export LC_ALL="en_US.UTF-8"
+#}}}
+
+# ---- SYS ALIASES {{{
+## pass options to free ##
+alias meminfo='free -m -l -t'
+ 
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+ 
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+ 
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## End conda sessions when scott-services doesn't
+alias end_conda="ps aux | grep bailey-r | grep conda | grep -v grep | awk '{print $2}' | xargs kill -9"
+
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+ 
+## get GPU ram on desktop / laptop##
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+#}}}
+
+# ---- BASH ALIASES {{{
+# easy out
+alias off="cd; tmux kill-session -t; exit"
+
+# filesystem 
+alias ll='ls -alFGgh --color="always"'
+alias ..="cd .."
+alias ...="cd ../.."
+
+# using templates
+alias cp-py="cp ~/git/training-docs/templates/sample.py ."
+alias cp-r="cp ~/git/training-docs/templates/sample.R ."
+alias cp-m="cp ~/git/training-docs/templates/Makefile ."
+alias cp-rmd="cp ~/git/training-docs/templates/sample.Rmd"
+
+# using HRDAG project structure
+alias mktask="mkdir input output src; touch Makefile"
+#}}}
+
+# ----GIT ALIASES {{{
+alias gs="git status"
+alias gc="git commit"
+alias gA="git add -A && git status"
+alias master-to-main="git branch -m master main; git fetch origin; git branch -u origin/main main; git remote set-head origin -a"
+
+# THESE DONT WORK RN
+# update gitconfig 
+# from local
+alias send-local-gitconf="scp ~/git/dotfiles/git/gitconfig bailey-r@scott:/git/dotfiles/git/"
+# from remote
+alias get-remote-gitconf="scp bailey-r@scott:/git/dotfiles/git/gitconfig ~/git/dotfiles/git/"
+# }}}
+
+# ---- LANGUAGE ALIASES {{{
+alias python="python3"
+#}}}
+
+# ---- VIM/NVIM ALIASES {{{
+alias nv="nvim"
+#}}}
+
+# ---- TMUX ALIASES {{{ 
+alias tm-new="tmux new -s"
+alias tm-a="tmux a -t"
+alias tm-ls="tmux ls"
+alias tm-k="tmux kill-session -t"
+#alias tm-ka="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
+alias tm-vs="%"
+alias tm-hs='"'
+#}}}
+
+# ---- PROJECT-SPECIFIC ALIASES {{{ 
+alias gs_all="bash ~/git/dotfiles/bash/gs_all_projects.sh"
+
+# training-docs
+alias tr="cd ~/git/training-docs"
+alias tr-update="cd ~/git/training-docs; git pull; cd -"
+
+# PR-Km0
+alias km-or="cd ~/git/PR-Km0/officer-roster"
+alias km-br="cd ~/git/PR-Km0; git checkout bailey-working"
+alias km-update="cd ~/git/PR-Km0; git pull; snap pull; cd -"
+#}}}
+
+# done.
