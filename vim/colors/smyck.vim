@@ -1,0 +1,1 @@
+/home/bailey/git/Smyck-Color-Scheme/smyck.vim
