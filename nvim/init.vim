@@ -84,19 +84,15 @@ colorscheme gruvbox-material
 "}}}
 
 " setup for indent blank lines {{{
-"lua << EOF
-"vim.opt.list = true
-"vim.opt.listchars:append "space:⋅"
-"vim.opt.listchars:append "eol:↴"
-"
-"require("ibl").setup {
-"	indent = {char = "|"}, 
-"	whitespace = {char = "⋅"},
-"	show_end_of_line = true,
-"	space_char_blankline = " ",
-"}
-"
-"EOF
+lua << EOF
+vim.opt.list = true
+vim.opt.listchars:append 'space:⋅'
+vim.opt.listchars:append 'eol:↴'
+
+require('ibl').setup {
+	indent = {tab_char = '|'} 
+}
+EOF
 " }}}
 
 " setup for autopairs {{{
