@@ -1,0 +1,107 @@
+snippet header
+#!/usr/bin/env python3
+# vim: set ts=4 sts=0 sw=4 si fenc=utf-8 et:
+# vim: set fdm=marker fmr={{{,}}} fdl=0 foldcolumn=4:
+# Authors:     BP
+# Maintainers: BP
+# Copyright:   2024, HRDAG, GPL v2 or later
+# =========================================
+endsnippet
+
+snippet dependencies-tag
+# ---- dependencies {{{
+#}}}
+endsnippet
+
+snippet import-basic
+from pathlib import Path
+from sys import stdout
+import argparse
+import logging
+import pandas as pd
+endsnippet
+
+snippet getfiles-deps
+from pathlib import Path, PosixPath
+from os.path import isfile, isdir
+endsnippet
+
+snippet support-methods-tag
+# --- support methods --- {{{
+# }}}
+endsnippet
+
+snippet getargs
+def getargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", default=None)
+    parser.add_argument("--output", default=None)
+    args = parser.parse_args()
+    assert Path(args.input).exists()
+    return args
+endsnippet
+
+snippet getlogger
+def getlogger(sname, file_name=None):
+    logger = logging.getLogger(sname)
+    logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s " +
+                                  "- %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
+    stream_handler = logging.StreamHandler(stdout)
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
+    if file_name:
+        file_handler = logging.FileHandler(file_name)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+    return logger
+endsnippet
+
+snippet readyaml
+def readyaml(yamlfile):
+    with open(yamlfile, 'r') as f:
+        data = yaml.safe_load(f)
+        f.close()
+    return data
+endsnippet
+
+snippet writeyaml
+def writeyaml(yamlfile, data):
+    with open(yamlfile, 'w') as f:
+        yaml.dump(data, f, default_flow_style=False)
+        f.close()
+    print(f'{yamlfile} written successfully')
+    return 1
+endsnippet
+
+snippet gitroot
+def gitroot():
+    top = subprocess.Popen(['git', 'rev-parse', '--show-toplevel'],
+                           stdout = subprocess.PIPE,
+                           stderr = subprocess.PIPE)
+    return top.communicate()[0].decode('utf-8').strip()
+endsnippet
+
+snippet getfiles
+def getfiles(arg, fext='parquet'):
+    assert isdir(arg)
+    return [path for path in Path(arg).rglob(f'*.{fext}')]
+endsnippet
+
+snippet main-tag
+# --- main --- {{{
+# }}}
+endsnippet
+
+snippet main
+if __name__ == '__main__':
+endsnippet
+
+snippet main-basic
+    logger = get_logger(__name__, "output/script.log")
+    args = get_args()
+    
+    logger.info('done')
+endsnippet
+
+# done.
