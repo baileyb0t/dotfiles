@@ -98,8 +98,8 @@ if __name__ == '__main__':
 endsnippet
 
 snippet main-basic
-    logger = get_logger(__name__, "output/script.log")
-    args = get_args()
+    args = getargs()
+    logger = getlogger(__name__, "output/script.log")
     
     logger.info('done')
 endsnippet
