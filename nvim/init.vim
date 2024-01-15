@@ -104,6 +104,11 @@ EOF
 " setup for coq_nvim {{{
 let g:coq_settings = {"auto_start": v:true}
 let g:coq_settings = { "keymap.recommended": v:true }
+
+augroup COQ 
+        autocmd!
+        autocmd VimEnter * COQnow -s
+augroup END
 " }}}
 
 " setup for nvim-lsputils {{{
@@ -155,20 +160,6 @@ end
 EOF
 " }}}
 
-" setup for nvim-lspconfig {{{
-"local lspconfig = require('lspconfig')
-"
-"" Automatically start coq
-"vim.g.coq_settings = { auto_start = 'shut-up' }
-"
-"" Enable some language servers with the additional completion capabilities offered by coq_nvim
-"local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-"for _, lsp in ipairs(servers) do
-"  lspconfig[lsp].setup(require('coq').lsp_ensure_capabilities({
-"  }))
-"end
-" }}}
-
 " setup for nvim-treesitter {{{
 " lua << EOF
 " require('nvim-treesitter').setup {
@@ -184,7 +175,6 @@ lua << EOF
 require('spellsitter').setup{}
 EOF
 " }}}
-
 " }}}
 
 " ---- VIMSCRIPT {{{
