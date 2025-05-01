@@ -15,7 +15,7 @@ snippet import-basic
     from pathlib import Path
     from sys import stdout
     import argparse
-    import logging
+    from loguru import logger
     import pandas as pd
 
 snippet getfiles-deps
@@ -35,20 +35,13 @@ snippet getargs
         assert Path(args.input).exists()
         return args
 
-snippet getlogger
-    def getlogger(sname, file_name=None):
-        logger = logging.getLogger(sname)
-        logger.setLevel(logging.DEBUG)
-        formatter = logging.Formatter("%(asctime)s - %(levelname)s " +
-                                      "- %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
-        stream_handler = logging.StreamHandler(stdout)
-        stream_handler.setFormatter(formatter)
-        logger.addHandler(stream_handler)
-        if file_name:
-            file_handler = logging.FileHandler(file_name)
-            file_handler.setFormatter(formatter)
-            logger.addHandler(file_handler)
-        return logger
+snippet setuplogging
+    def setuplogging(logfile):
+        logger.add(logfile,
+                   colorize=True,
+                   format="<green>{time:YYYY-MM-DD⋅at⋅HH:mm:ss}</green>⋅<level>{message}</level>",
+                   level="INFO")
+        return 1
 
 snippet readyaml
     def readyaml(yamlfile):
@@ -86,6 +79,5 @@ snippet main
 
 snippet main-basic
     args = getargs()
-    logger = getlogger(__name__, "output/script.log")
-    
+    setuplogging("output/script.log")
     logger.info('done')
