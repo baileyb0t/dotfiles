@@ -2,3 +2,4 @@ gitconfig
 vim/plugged
 vim/.DS_Store 
 creds
+.ipynb_checkpoints
