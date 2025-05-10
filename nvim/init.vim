@@ -57,7 +57,7 @@ Plug 'kkharji/lspsaga.nvim'   " get LSP popups and docs
 
 " grand functionality
 Plug 'jalvesaq/vimcmdline'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'neovim/nvim-lspconfig'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
