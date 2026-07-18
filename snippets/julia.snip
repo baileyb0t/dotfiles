@@ -2,24 +2,22 @@ snippet header
     # vim: set ts=4 sts=0 sw=4 si fenc=utf-8 et:
     # vim: set fdm=marker fmr={{{,}}} fdl=0 foldcolumn=4:
     # Authors:     BP
-    # Maintainers: BP
-    # Copyright:   2024, HRDAG, GPL v2 or later
     # =========================================
-    
+
 snippet dependencies-tag
     # ---- dependencies {{{
     #}}}
-    
+
 snippet import-basic
     using ArgParse
     using Logging: ConsoleLogger
     using Parquet: read_parquet, write_parquet
     using DataFrames: DataFrame
-    
+
 snippet support-methods-tag
     # --- support methods --- {{{
     # }}}
-    
+
 snippet getargs
     function getargs()
         s = ArgParseSettings()
@@ -33,14 +31,14 @@ snippet getargs
         @assert isfile(args["input"])
         return args
     end
-    
+
 snippet getlogger
     function getlogger(fname)
         io = open(fname, "w+")
         logger = ConsoleLogger(io)
         return logger
     end
-    
+
 snippet main-basic
     function main()
         args = getargs()
